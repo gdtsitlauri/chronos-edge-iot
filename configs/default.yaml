@@ -1,0 +1,110 @@
+# ============================================================
+# CHRONOS Default Configuration
+# ============================================================
+
+system:
+  num_edge_nodes: 20
+  num_iot_devices: 100
+  num_channels: 10
+  bandwidth_mhz: 20.0
+  noise_power_dbm: -174.0    # Thermal noise power spectral density
+  max_power_dbm: 23.0        # Max transmit power per device
+  area_size_m: 500.0         # Square area side length
+  seed: 42
+
+edge_node:
+  cpu_frequency_ghz: [2.0, 4.0]          # Range of CPU frequencies
+  memory_gb: [4, 16]                      # Range of memory
+  energy_budget_j: 10000.0                # Per-episode energy budget
+  effective_capacitance: 1.0e-28          # CPU energy coefficient
+  queue_capacity: 50                      # Max tasks in queue
+
+iot_device:
+  cpu_frequency_ghz: [0.5, 1.5]
+  max_power_dbm: 23.0
+  energy_budget_j: 1000.0
+  task_arrival_rate: 0.5                  # Poisson arrival rate (tasks/step)
+
+task:
+  data_size_mb: [0.1, 10.0]              # Input data size range
+  computation_mcycles: [10, 1000]         # Required CPU cycles range
+  deadline_ms: [50, 500]                  # Deadline range
+  types: ["classification", "detection", "anomaly", "prediction"]
+
+wireless:
+  path_loss_exponent: 3.5
+  rayleigh_scale: 1.0
+  shadow_fading_std_db: 8.0
+  coherence_time_ms: 10.0                # Channel coherence time
+  carrier_frequency_ghz: 3.5             # 5G mid-band
+
+hypergraph:
+  max_hyperedge_size: 6
+  causal_discovery_window: 50            # Sliding window for CI tests
+  causal_significance: 0.05              # p-value threshold
+  update_interval: 10                    # Steps between causal updates
+
+chse:
+  node_embedding_dim: 64
+  hidden_dim: 128
+  output_dim: 64
+  num_layers: 3
+  num_attention_heads: 4
+  dropout: 0.1
+  causal_gate_hidden: 32
+
+spn:
+  num_lif_layers: 3
+  hidden_neurons: 256
+  time_steps: 16                         # Spike simulation time steps
+  membrane_decay: 0.9                    # LIF decay constant (lambda)
+  threshold: 1.0                         # Firing threshold
+  surrogate_slope: 25.0                  # Surrogate gradient slope
+  beta_init: 0.5                         # Rate-temporal coding balance
+  recency_decay: 0.1                     # TDST decoder recency
+
+ccpg:
+  gamma: 0.99                            # Discount factor
+  lr_policy: 3.0e-4
+  lr_critic: 1.0e-3
+  lr_dual: 1.0e-2
+  lr_lambda: 1.0e-3                      # Objective weight adaptation
+  clip_epsilon: 0.2                      # PPO-style clipping
+  entropy_coeff: 0.01
+  max_grad_norm: 0.5
+  num_objectives: 4
+  counterfactual_samples: 8              # Per-agent counterfactuals
+  gae_lambda: 0.95
+  batch_size: 256
+  update_epochs: 4
+
+hfa:
+  aggregation_interval: 5               # Rounds between FL aggregation
+  local_sgd_steps: 5                     # Local training steps
+  lr_local: 0.01
+  momentum: 0.9
+  ot_regularization: 0.1                # Sinkhorn regularization
+  ot_max_iter: 100
+  compression_ratio: 0.1                # Top-K sparsification (keep 10%)
+  min_participation: 0.3                 # Min fraction of participating clients
+
+dtcs:
+  twin_lr: 1.0e-3
+  twin_hidden_dim: 256
+  twin_layers: 3
+  counterfactual_trajectories: 16
+  sync_interval: 5                       # Steps between twin sync
+  sim_to_real_threshold: 0.1             # Max acceptable twin error
+
+training:
+  total_rounds: 1000
+  episodes_per_round: 10
+  max_steps_per_episode: 200
+  eval_interval: 10
+  save_interval: 50
+  log_interval: 5
+  device: "auto"                          # auto, cpu, cuda
+
+evaluation:
+  num_eval_episodes: 50
+  pareto_reference_point: [0.0, 1000.0, 10000.0, 1.0e8]  # For hypervolume

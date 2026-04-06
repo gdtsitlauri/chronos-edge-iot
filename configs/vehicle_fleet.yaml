@@ -1,0 +1,39 @@
+# ============================================================
+# CHRONOS Configuration: Autonomous Vehicle Fleet Scenario
+# ============================================================
+
+_base_: default.yaml
+
+system:
+  num_edge_nodes: 20
+  num_iot_devices: 50
+  num_channels: 15
+  area_size_m: 2000.0
+  seed: 43
+
+edge_node:
+  cpu_frequency_ghz: [4.0, 8.0]     # RSU with GPU
+  memory_gb: [16, 64]
+  energy_budget_j: 100000.0
+
+iot_device:
+  cpu_frequency_ghz: [1.0, 3.0]     # Vehicle onboard compute
+  max_power_dbm: 26.0
+  task_arrival_rate: 1.2             # High task rate
+
+task:
+  data_size_mb: [1.0, 50.0]         # Camera/lidar frames
+  computation_mcycles: [100, 5000]
+  deadline_ms: [10, 100]             # Strict latency
+  types: ["object_detection_3d", "segmentation", "tracking", "prediction"]
+
+wireless:
+  path_loss_exponent: 3.0
+  shadow_fading_std_db: 4.0
+  coherence_time_ms: 2.0            # High mobility
+  carrier_frequency_ghz: 5.9        # V2X (C-V2X)
+
+dataset:
+  name: "nuscenes_bdd"
+  fl_alpha: 0.3                     # Higher non-IID
+  num_classes: 23

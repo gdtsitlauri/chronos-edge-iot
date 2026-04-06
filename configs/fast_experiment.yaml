@@ -1,0 +1,60 @@
+# ============================================================
+# CHRONOS Fast Experiment Config (CPU-friendly)
+# Minimal scale for generating paper-ready results quickly
+# ============================================================
+_base_: default.yaml
+
+system:
+  num_edge_nodes: 3
+  num_iot_devices: 8
+  num_channels: 2
+  area_size_m: 100.0
+  seed: 42
+
+edge_node:
+  queue_capacity: 20
+
+iot_device:
+  task_arrival_rate: 0.3
+
+hypergraph:
+  causal_discovery_window: 20
+  update_interval: 50
+
+chse:
+  node_embedding_dim: 16
+  hidden_dim: 32
+  output_dim: 16
+  num_layers: 1
+  num_attention_heads: 2
+
+spn:
+  num_lif_layers: 1
+  hidden_neurons: 32
+  time_steps: 4
+
+ccpg:
+  counterfactual_samples: 2
+  batch_size: 32
+  update_epochs: 1
+
+hfa:
+  aggregation_interval: 10
+  compression_ratio: 0.3
+
+dtcs:
+  twin_hidden_dim: 32
+  twin_layers: 1
+  counterfactual_trajectories: 2
+  sync_interval: 20
+
+training:
+  total_rounds: 30
+  episodes_per_round: 3
+  max_steps_per_episode: 30
+  eval_interval: 10
+  save_interval: 15
+  log_interval: 5
+
+evaluation:
+  num_eval_episodes: 10

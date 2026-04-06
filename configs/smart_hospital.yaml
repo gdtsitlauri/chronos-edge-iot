@@ -1,0 +1,40 @@
+# ============================================================
+# CHRONOS Configuration: Smart Hospital Scenario
+# ============================================================
+
+_base_: default.yaml
+
+system:
+  num_edge_nodes: 30
+  num_iot_devices: 500
+  num_channels: 15
+  area_size_m: 400.0
+  seed: 44
+
+edge_node:
+  cpu_frequency_ghz: [2.0, 4.0]
+  memory_gb: [8, 32]
+  energy_budget_j: 30000.0
+
+iot_device:
+  cpu_frequency_ghz: [0.1, 0.5]     # Wearable devices
+  max_power_dbm: 20.0               # Low power wearables
+  energy_budget_j: 200.0            # Very limited battery
+  task_arrival_rate: 0.3             # Periodic monitoring
+
+task:
+  data_size_mb: [0.01, 1.0]         # Sensor readings, ECG
+  computation_mcycles: [5, 200]
+  deadline_ms: [100, 1000]
+  types: ["ecg_classification", "vitals_prediction", "anomaly_alert", "patient_clustering"]
+
+wireless:
+  path_loss_exponent: 3.2
+  shadow_fading_std_db: 7.0
+  coherence_time_ms: 50.0           # Low mobility
+  carrier_frequency_ghz: 5.0        # WiFi-6
+
+dataset:
+  name: "mimic_ptbxl"
+  fl_alpha: 0.1                     # Very non-IID (patient-specific)
+  num_classes: 12

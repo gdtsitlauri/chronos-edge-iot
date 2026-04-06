@@ -1,0 +1,49 @@
+# ============================================================
+# CHRONOS Quick Experiment Config (for CPU execution)
+# Reduced scale for generating results in reasonable time
+# ============================================================
+_base_: default.yaml
+
+system:
+  num_edge_nodes: 5
+  num_iot_devices: 15
+  num_channels: 3
+  area_size_m: 200.0
+  seed: 42
+
+chse:
+  node_embedding_dim: 32
+  hidden_dim: 64
+  output_dim: 32
+  num_layers: 2
+  num_attention_heads: 2
+
+spn:
+  num_lif_layers: 2
+  hidden_neurons: 64
+  time_steps: 8
+
+ccpg:
+  counterfactual_samples: 4
+  batch_size: 64
+  update_epochs: 2
+
+hfa:
+  aggregation_interval: 5
+  compression_ratio: 0.2
+
+dtcs:
+  twin_hidden_dim: 64
+  twin_layers: 2
+  counterfactual_trajectories: 4
+
+training:
+  total_rounds: 50
+  episodes_per_round: 5
+  max_steps_per_episode: 50
+  eval_interval: 10
+  save_interval: 25
+  log_interval: 5
+
+evaluation:
+  num_eval_episodes: 20

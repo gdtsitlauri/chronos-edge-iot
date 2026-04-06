@@ -1,0 +1,37 @@
+# ============================================================
+# CHRONOS Configuration: Smart Factory Scenario
+# ============================================================
+
+_base_: default.yaml
+
+system:
+  num_edge_nodes: 50
+  num_iot_devices: 200
+  num_channels: 20
+  area_size_m: 300.0
+  seed: 42
+
+edge_node:
+  cpu_frequency_ghz: [3.0, 5.0]
+  memory_gb: [8, 32]
+  energy_budget_j: 50000.0
+
+iot_device:
+  cpu_frequency_ghz: [0.2, 1.0]
+  task_arrival_rate: 0.8
+
+task:
+  data_size_mb: [0.5, 5.0]
+  computation_mcycles: [50, 500]
+  deadline_ms: [20, 200]
+  types: ["anomaly_detection", "quality_inspection", "predictive_maintenance", "classification"]
+
+wireless:
+  path_loss_exponent: 2.8        # Indoor industrial
+  shadow_fading_std_db: 6.0
+  carrier_frequency_ghz: 3.5     # 5G URLLC
+
+dataset:
+  name: "mvtec_cifar"
+  fl_alpha: 0.5                  # Dirichlet non-IID parameter
+  num_classes: 100
