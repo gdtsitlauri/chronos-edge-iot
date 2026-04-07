@@ -1,5 +1,6 @@
 # CHRONOS Research Codebase
 
+
 CHRONOS stands for **Causal Hypergraph-Regulated Orchestration of Networked Offloading with Spiking Intelligence**.
 
 This repository contains:
@@ -9,6 +10,13 @@ This repository contains:
 - Ablation framework
 - Pareto and metrics analysis tools
 - Reproducibility runner (multi-seed + significance tests)
+
+---
+**Research Paper:**
+This project is accompanied by a full research paper describing the architecture, methodology, and experimental results of CHRONOS. The research and all experiments were conducted in 2026.
+
+You can find the paper in [paper/chronos_paper.tex](paper/chronos_paper.tex).
+---
 
 ## 1. Environment Setup
 

@@ -1,3 +1,5 @@
+# Ignore research proposal draft
+CHRONOS_Research_Proposal.md
 # Python bytecode and cache
 __pycache__/
 *.py[cod]
