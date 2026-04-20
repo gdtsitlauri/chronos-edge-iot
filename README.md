@@ -1,5 +1,9 @@
 # CHRONOS Research Codebase
 
+**Author:** George David Tsitlauri  
+**Affiliation:** Dept. of Informatics & Telecommunications, University of Thessaly, Greece  
+**Contact:** gdtsitlauri@gmail.com  
+**Year:** 2026
 
 CHRONOS stands for **Causal Hypergraph-Regulated Orchestration of Networked Offloading with Spiking Intelligence**.
 
@@ -205,3 +209,15 @@ Note:
 
 This project is released under the MIT License.
 See the `LICENSE` file for full text.
+
+## Citation
+
+```bibtex
+@misc{tsitlauri2026chronos,
+  author = {George David Tsitlauri},
+  title  = {CHRONOS: Causal Hypergraph-Regulated Orchestration of Networked Offloading with Spiking Intelligence},
+  year   = {2026},
+  institution = {University of Thessaly},
+  email  = {gdtsitlauri@gmail.com}
+}
+```
