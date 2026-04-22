@@ -2,13 +2,18 @@
 
 **Causal Hypergraph-Regulated Orchestration of Networked Offloading with Spiking Intelligence**
 
-**Author:** George David Tsitlauri  
-**Contact:** gdtsitlauri@gmail.com  
-**Website:** gdtsitlauri.dev  
-**GitHub:** github.com/gdtsitlauri  
-**Year:** 2026
 
 CHRONOS is a simulation-first research repository for edge/IoT orchestration under conflicting objectives: task accuracy, latency, communication cost, energy use, and deadline compliance. The repository includes a full simulator, CHRONOS-specific decision modules, baseline runners, ablation tooling, and analysis scripts.
+
+
+## Project Metadata
+
+| Field | Value |
+| --- | --- |
+| Author | George David Tsitlauri |
+| Affiliation | Dept. of Informatics & Telecommunications, University of Thessaly, Greece |
+| Contact | gdtsitlauri@gmail.com |
+| Year | 2026 |
 
 ## Evidence Status
 
@@ -131,13 +136,4 @@ python -m pytest -q
 - Add communication-aware calibration experiments.
 - Evaluate on richer traffic/task arrival regimes and, eventually, hardware-in-the-loop setups.
 
-## Citation
 
-```bibtex
-@misc{tsitlauri2026chronos,
-  author = {George David Tsitlauri},
-  title  = {CHRONOS: Causal Hypergraph-Regulated Orchestration of Networked Offloading with Spiking Intelligence},
-  year   = {2026},
-  url    = {https://github.com/gdtsitlauri}
-}
-```

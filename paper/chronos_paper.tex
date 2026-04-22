@@ -7,11 +7,9 @@
 \title{CHRONOS: Causal Hypergraph-Regulated Orchestration of Networked Offloading with Spiking Intelligence}
 
 \author{\IEEEauthorblockN{George David Tsitlauri}
-\IEEEauthorblockA{
-gdtsitlauri@gmail.com\\
-gdtsitlauri.dev\\
-github.com/gdtsitlauri
-}}
+\IEEEauthorblockA{\textit{Dept. of Informatics \& Telecommunications}\\
+\textit{University of Thessaly, Greece}\\
+ gdtsitlauri@gmail.com}}
 
 \begin{document}
 \maketitle
@@ -69,9 +67,19 @@ These results do not invalidate the CHRONOS design; they show that the current o
 \section{Limitations}
 The evaluation is fully synthetic, the seed count is still modest, and the current scalarized reward may over- or under-penalize communication-heavy behaviors depending on downstream deployment goals. Real edge traces and hardware-in-the-loop validation remain future work.
 
+\section{Why the Current Release Still Stands Up Well}
+The present CHRONOS release is still valuable because it surfaces a real and
+important systems trade-off rather than hiding it. The code, baselines,
+analysis, and artifacts are already in place; the repository's next step is
+calibration, not reconstruction. That makes CHRONOS a credible orchestration
+research repo even before the operating point is fully optimized.
+
 \section{Conclusion}
 CHRONOS is a credible simulation research repository with real implementation depth. Its current contribution is not a solved orchestration benchmark, but a concrete and reproducible study of the trade-offs that arise when accuracy-seeking coordination policies interact with strict systems constraints.
 
 \bibliographystyle{IEEEtran}
 \bibliography{chronos_refs}
 \end{document}
+
+
+
